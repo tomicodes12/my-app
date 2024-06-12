@@ -1,13 +1,10 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import VMC from '../../inc/vmc';
-import Slider from '../inc/slider';
 
 function Home() {
   return (
     <div>
-      <Slider/>
       <section className="section">
         <div className="container">
           <div className="row">
@@ -20,7 +17,6 @@ function Home() {
           </div>
         </div>
       </section>
-      <VMC/>
       <section className="section bg-c-light border-top">
         <div className="container">
           <div className="row">
