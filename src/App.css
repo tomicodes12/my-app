@@ -1,0 +1,20 @@
+
+.section {
+    padding-top: 40%;
+    padding-bottom: 40px;
+}
+.main-heading {
+    color: blue
+}
+
+.underline {
+    height: 4px;
+    width: 4rem;
+    background-color: blue;
+    margin-top: 10px;
+    margin-bottom:10px ;
+}
+.bg-c-light
+{
+    background-color: grey;
+}
