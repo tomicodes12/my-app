@@ -1,20 +1,153 @@
+.body {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+
+}
+
+.contact-link {
+  color: #007bff;
+  /* Change the color to blue */
+}
+
+.blue-text {
+  color: blue;
+}
+
+.footer {
+  background-color: skyblue;
+
+}
+
+.navbar-item.Anderson {
+  margin-right: 20px;
+}
+
+
+#root {
+  height: 100vh;
+  background-image: url('/public/image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 400vh;
+}
+
+.navbar {
+  background-color: #0000ff;
+  color: #007bff;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.navbar-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar-links li {
+  margin-right: 2rem;
+}
+
+.navbar-links a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navbar-links a:hover {
+  color: #ccc;
+}
+
 .section {
-    padding-top: 40%;
-    padding-bottom: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .main-heading {
-    color: blue;
+  color: #007bff;
 }
 
 .underline {
-    height: 4px;
-    width: 4rem;
-    background-color: blue;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  height: 2px;
+  width: 4rem;
+  background-color: #007bff;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .bg-c-light {
-    background-color: grey;
+  background-color: #808080;
+}
+
+.slideshow-container {
+  position: relative;
+  max-width: 800px;
+  /* Adjust the max-width as needed */
+  height: 300px;
+  margin: auto;
+  overflow: hidden;
+  border: 2px solid #ddd;
+  /* Border color */
+  border-radius: 8px;
+  /* Rounded corners */
+  padding-top: 100.25%;
+  /* 16:9 aspect ratio (adjust as needed) */
+  position: relative;
+}
+
+.navbar-item {
+  margin-right: 30px;
+  /* Shift the item 20 pixels to the right */
+}
+
+
+.slideshow-slide img {
+  top: 0;
+  left: 0;
+  width: 1000px;
+  height: 500px;
+  object-fit: contain;
+  position: absolute;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  color: #fff;
+  /* Arrow color */
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Arrow background color */
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Hover background color */
 }

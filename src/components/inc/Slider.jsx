@@ -1,29 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react';
+import image11 from '../images/image11.jpg';
+import image8 from '../images/image8.jpg';
+import image3 from '../images/image3.jpg';
 
-function Slider() {
+const Slideshow = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const images = [
+    image11,
+    image8,
+    image3
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((currentSlide + 1) % images.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((currentSlide - 1 + images.length) % images.length);
+  };
+
   return (
-    <div id="carouselExample" class="carousel slide">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="..." class="d-block w-100" alt="..." />
-        </div>
-        <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="..." />
-        </div>
-        <div class="carousel-item">
-          <img src="..." class="d-block w-100" alt="..." />
-        </div>
+    <div className="slideshow-container">
+      <button className="prev" onClick={prevSlide}>&#10094;</button>
+      <button className="next" onClick={nextSlide}>&#10095;</button>
+      <div className="slideshow-slide">
+        <img src={images[currentSlide]} alt={`Slide ${currentSlide}`} />
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
   );
-}
+};
 
-export default Slider;
+export default Slideshow;
