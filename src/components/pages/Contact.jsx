@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Footer from '../inc/Footer';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -10,40 +9,43 @@ function Contact() {
     message: '',
   });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const formDataObject = new FormData();
-    formDataObject.append('firstName', formData.firstName);
-    formDataObject.append('lastName', formData.lastName);
-    formDataObject.append('phone', formData.phone);
-    formDataObject.append('email', formData.email);
-    formDataObject.append('message', formData.message);
-  
-    fetch('https://formspree.io/f/xjvnnppl', {
-      method: "POST",
-      body: formDataObject,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Form submitted successfully:', data);
-        // Optionally reset the form fields after successful submission
-        setFormData({
-          firstName: '',
-          lastName: '',
-          phone: '',
-          email: '',
-          message: '',
-        });
-      })
-      .catch((error) => {
-        console.error('Error submitting form:', error);
-        // Handle errors or display a message to the user
+
+    try {
+      const response = await fetch('https://emis-server.onrender.com/contact-lists', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
+
+      const data = await response.json();
+      console.log('Form submitted successfully:', data);
+
+      setFormData({
+        firstName: '',
+        lastName: '',
+        phone: '',
+        email: '',
+        message: '',
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
   };
 
   return (
@@ -77,6 +79,7 @@ function Contact() {
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleChange}
+                        required
                       />
                     </div>
                     <div className="form-group">
@@ -88,28 +91,31 @@ function Contact() {
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleChange}
+                        required
                       />
                     </div>
                     <div className="form-group">
                       <label className="mb-1">Phone Number</label>
                       <input
-                        type="text"
+                        type="tel"
                         className="form-control"
                         placeholder="Enter Phone Number"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
+                        required
                       />
                     </div>
                     <div className="form-group">
                       <label className="mb-1">Email</label>
                       <input
-                        type="text"
+                        type="email"
                         className="form-control"
                         placeholder="Enter Email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
+                        required
                       />
                     </div>
                     <div className="form-group">
@@ -121,11 +127,13 @@ function Contact() {
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
+                        required
                       />
                     </div>
                     <div className="form-group py-3">
-                    <button type="submit" className="btn btn-primary shadow w-100"> Send </button>
-
+                      <button type="submit" className="btn btn-primary shadow w-100">
+                        Send
+                      </button>
                     </div>
                   </form>
                 </div>
@@ -133,7 +141,8 @@ function Contact() {
                   <p> </p>
                   <h5 className="main-heading">Address Information</h5>
                   <div className="underline"></div>
-                  <p>Address: </p>
+
+                  <p>Address: Chevron, Nigeria</p>
                   <p>Phone: 08104919209</p>
                   <p>Email: info@andersonhotel.com</p>
                 </div>
@@ -142,7 +151,6 @@ function Contact() {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 }
