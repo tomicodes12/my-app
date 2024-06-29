@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-17">
+        <div className="col-md-18">
           <nav className="navbar navbar-expand-lg navbar-dark bg-grey">
             <div className="container-fluid">
               <li className="nav-item col-md-8">
@@ -35,6 +35,13 @@ function Navbar() {
                   <li className="nav-item">
                     <NavLink to="/about" className="nav-link active">About</NavLink>
                   </li>
+                  <li className="nav-item">
+                    <NavLink to="/generalledger" className="nav-link active">General </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink to="/ledger" className="nav-link active">Ledger</NavLink>
+                  </li>
+                  
                 </ul>
               </div>
             </div>
