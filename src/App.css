@@ -1,7 +1,73 @@
 .body {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
+table{
+  width: 120%;
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid#ddd;
+  padding: 8px;
+}
+th{
+  background-color: #f2f2f2;
+  text-align: left;
+}
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
+h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="checkbox"] {
+  margin-top: 10px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-add {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.btn-cancel {
+  background-color: #dc3545;
+  color: #fff;
 }
 
 .contact-link {
@@ -105,7 +171,7 @@
 }
 
 .navbar-item {
-  margin-right: 30px;
+  margin-right: 50px;
   /* Shift the item 20 pixels to the right */
 }
 
@@ -150,4 +216,8 @@
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
   /* Hover background color */
+}
+.navbar{
+width: 1157px;
+margin :0 auto ;
 }
